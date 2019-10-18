@@ -27,7 +27,5 @@ public interface CountryListContract {
     interface Presenter extends PresenterBase {
 
         void requestDataFromServer();
-
-        //void getMoreData(int pageNo);
     }
 }
