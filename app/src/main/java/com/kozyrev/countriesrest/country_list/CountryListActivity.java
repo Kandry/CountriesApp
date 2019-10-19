@@ -11,7 +11,7 @@ import java.util.List;
 
 public class CountryListActivity extends AppCompatActivity implements CountryListContract.View, CountryItemClickListener, ShowEmptyView{
 
-    // В ЯЧЕЙКАХ ТОЛЬКО НАЗВАНИЕ. ЯЧЕЙКИ НА ВСЮ ШИРИНУ
+    private CountryListPresenter countryListPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
