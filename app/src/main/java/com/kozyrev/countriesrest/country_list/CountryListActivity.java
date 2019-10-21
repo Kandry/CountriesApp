@@ -34,7 +34,6 @@ public class CountryListActivity extends AppCompatActivity implements CountryLis
     private CountriesAdapter countriesAdapter;
     private ProgressBar pbLoading;
     private TextView tvEmpty;
-    private GridLayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +54,7 @@ public class CountryListActivity extends AppCompatActivity implements CountryLis
         countries = new ArrayList<>();
         countriesAdapter = new CountriesAdapter(this, countries);
 
-        layoutManager = new GridLayoutManager(this, 1);
-        rvCountries.setLayoutManager(layoutManager);
+        rvCountries.setLayoutManager(new GridLayoutManager(this, 1));
         rvCountries.setItemAnimator(new DefaultItemAnimator());
         rvCountries.setAdapter(countriesAdapter);
 

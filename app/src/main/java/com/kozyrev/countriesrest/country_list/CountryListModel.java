@@ -36,9 +36,9 @@ public class CountryListModel implements CountryListContract.Model {
             }
 
             @Override
-            public void onFailure(Call<List<Country>> call, Throwable t) {
-                Log.e(TAG, t.toString());
-                onFinishedListener.onFailure(t);
+            public void onFailure(Call<List<Country>> call, Throwable throwable) {
+                Log.e(TAG, throwable.toString());
+                onFinishedListener.onFailure(throwable);
             }
         });
     }

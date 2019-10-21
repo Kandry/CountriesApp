@@ -40,14 +40,14 @@ public class CountryDetailModel implements CountryDetailContract.Model {
                     realm.copyToRealmOrUpdate(country);
                     realm.commitTransaction();
 
-                    Log.d(TAG, "Country data received: " + country.toString());
+                    Log.d(TAG, "Country data received: " + country.getName());
                     onFinishedListener.onFinished(country);
                 }
 
                 @Override
-                public void onFailure(Call<List<Country>> call, Throwable t) {
-                    Log.e(TAG, t.getMessage());
-                    onFinishedListener.onFailure(t);
+                public void onFailure(Call<List<Country>> call, Throwable throwable) {
+                    Log.e(TAG, throwable.getMessage());
+                    onFinishedListener.onFailure(throwable);
                 }
             });
         }
