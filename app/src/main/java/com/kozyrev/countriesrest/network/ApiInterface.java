@@ -14,5 +14,5 @@ public interface ApiInterface {
     Call<List<Country>> getCountries();
 
     @GET("name/{name}")
-    Call<Country> getCountryDetail(@Path("name") String name);
+    Call<List<Country>> getCountryDetail(@Path("name") String name);
 }

@@ -25,7 +25,114 @@
             android:elevation="@dimen/card_elevation"
             app:cardCornerRadius="@dimen/card_album_radius">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
 
+                <TextView
+                    android:id="@+id/tv_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/tv_details"
+                    android:textColor="@color/colorTitle"
+                    android:textSize="@dimen/detail_title_size"
+                    android:textStyle="bold"
+                    android:typeface="sans" />
+
+                <TextView
+                    android:id="@+id/tv_native_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/tv_native_name"
+                    android:textColor="@color/colorTitle"
+                    android:textSize="@dimen/details_size"
+                    android:typeface="sans" />
+
+                <TextView
+                    android:id="@+id/tv_native_name_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:textSize="@dimen/details_size"
+                    android:typeface="sans" />
+
+                <TextView
+                    android:id="@+id/tv_capital"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/tv_capital"
+                    android:textColor="@color/colorTitle"
+                    android:textSize="@dimen/details_size"
+                    android:typeface="sans" />
+
+                <TextView
+                    android:id="@+id/tv_capital_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:textSize="@dimen/details_size"
+                    android:typeface="sans" />
+
+                <TextView
+                    android:id="@+id/tv_numeric_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/tv_numeric_code"
+                    android:textColor="@color/colorTitle"
+                    android:textSize="@dimen/details_size"
+                    android:typeface="sans" />
+
+                <TextView
+                    android:id="@+id/tv_numeric_code_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:textSize="@dimen/details_size"
+                    android:typeface="sans" />
+
+                <TextView
+                    android:id="@+id/tv_region"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/tv_region"
+                    android:textColor="@color/colorTitle"
+                    android:textSize="@dimen/details_size"
+                    android:typeface="sans" />
+
+                <TextView
+                    android:id="@+id/tv_region_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:textSize="@dimen/details_size"
+                    android:typeface="sans" />
+
+                <TextView
+                    android:id="@+id/tv_population"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/tv_population"
+                    android:textColor="@color/colorTitle"
+                    android:textSize="@dimen/details_size"
+                    android:typeface="sans" />
+
+                <TextView
+                    android:id="@+id/tv_population_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:textSize="@dimen/details_size"
+                    android:typeface="sans" />
+
+            </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 

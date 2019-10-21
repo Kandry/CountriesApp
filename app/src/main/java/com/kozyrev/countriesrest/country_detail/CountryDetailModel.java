@@ -6,6 +6,8 @@ import com.kozyrev.countriesrest.model.Country;
 import com.kozyrev.countriesrest.network.ApiClient;
 import com.kozyrev.countriesrest.network.ApiInterface;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -18,17 +20,18 @@ public class CountryDetailModel implements CountryDetailContract.Model {
     public void getCountryDetails(OnFinishedListener onFinishedListener, String name) {
 
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<Country> call = apiInterface.getCountryDetail(name);
-        call.enqueue(new Callback<Country>() {
+        Call<List<Country>> call = apiInterface.getCountryDetail(name);
+        call.enqueue(new Callback<List<Country>>() {
             @Override
-            public void onResponse(Call<Country> call, Response<Country> response) {
-                Country country = response.body();
+            public void onResponse(Call<List<Country>> call, Response<List<Country>> response) {
+                List<Country> countries = response.body();
+                Country country = countries.get(0);
                 Log.d(TAG, "Country data received: " + country.toString());
                 onFinishedListener.onFinished(country);
             }
 
             @Override
-            public void onFailure(Call<Country> call, Throwable t) {
+            public void onFailure(Call<List<Country>> call, Throwable t) {
                 Log.e(TAG, t.getMessage());
                 onFinishedListener.onFailure(t);
             }

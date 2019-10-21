@@ -25,12 +25,12 @@ public class Country {
     private String flag;
 
     @SerializedName("population")
-    private int population;
+    private String population;
 
     @SerializedName("languages")
     private List<Language> languages;
 
-    public Country(String name, String nativeName, String capital, String numericCode, String region, String flag, int population, List<Language> languages){
+    public Country(String name, String nativeName, String capital, String numericCode, String region, String flag, String population, List<Language> languages){
         this.name = name;
         this.nativeName = nativeName;
         this.capital = capital;
@@ -89,11 +89,11 @@ public class Country {
         this.flag = flag;
     }
 
-    public int getPopulation() {
+    public String getPopulation() {
         return population;
     }
 
-    public void setPopulation(int population) {
+    public void setPopulation(String population) {
         this.population = population;
     }
 
