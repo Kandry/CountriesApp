@@ -1,15 +1,11 @@
 package com.kozyrev.countriesrest.country_detail;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.PictureDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -120,8 +116,8 @@ public class CountryDetailActivity extends AppCompatActivity implements CountryD
 
         languages = new ArrayList<>();
         RecyclerView rvLanguages = findViewById(R.id.rv_languages);
-        //languagesAdapter = new LanguagesAdapter(this, languages);
-        //rvLanguages.setAdapter(languagesAdapter);
+        languagesAdapter = new LanguagesAdapter(languages);
+        rvLanguages.setAdapter(languagesAdapter);
         pbLoadLanguages = findViewById(R.id.pb_languages_loading);
     }
 
@@ -151,25 +147,10 @@ public class CountryDetailActivity extends AppCompatActivity implements CountryD
                         }
                     })
                     .load(Uri.parse(country.getFlag()), ivFlag);
-/*
-            Glide.with(this)
-                    .load(country.getFlag())
-                    .listener(new RequestListener<Drawable>() {
-                        @Override
-                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                            pbLoadFlag.setVisibility(View.GONE);
-                            return false;
-                        }
 
-                        @Override
-                        public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                            pbLoadFlag.setVisibility(View.GONE);
-                            return false;
-                        }
-                    })
-                    .apply(new RequestOptions().placeholder(R.drawable.ic_place_holder).error(R.drawable.ic_place_holder))
-                    .into(ivFlag);*/
-
+            languages.clear();
+            languages = country.getLanguages();
+            languagesAdapter.dataSetChanged(languages);
         }
     }
 
@@ -180,7 +161,7 @@ public class CountryDetailActivity extends AppCompatActivity implements CountryD
 
     @Override
     public void hideProgress() {
-        pbLoadFlag.setVisibility(View.GONE);
+        pbLoadLanguages.setVisibility(View.GONE);
     }
 
     @Override
