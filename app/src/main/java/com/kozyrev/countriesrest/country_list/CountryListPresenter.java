@@ -11,7 +11,7 @@ public class CountryListPresenter implements CountryListContract.Presenter, Coun
 
     public CountryListPresenter(CountryListContract.View countryListView){
         this.countryListView = countryListView;
-        countryListModel = new CountryListModel();
+        this.countryListModel = new CountryListModel();
     }
 
     @Override
