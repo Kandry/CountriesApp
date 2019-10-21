@@ -10,7 +10,7 @@ import retrofit2.http.Path;
 
 public interface ApiInterface {
 
-    @GET("all")
+    @GET("all?fields=name")
     Call<List<Country>> getCountries();
 
     @GET("name/{name}")

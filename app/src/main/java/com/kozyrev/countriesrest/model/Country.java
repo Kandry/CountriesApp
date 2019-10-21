@@ -2,10 +2,13 @@ package com.kozyrev.countriesrest.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
+import io.realm.RealmList;
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
-public class Country {
+public class Country extends RealmObject {
 
+    @PrimaryKey
     @SerializedName("name")
     private String name;
 
@@ -28,17 +31,10 @@ public class Country {
     private String population;
 
     @SerializedName("languages")
-    private List<Language> languages;
+    private RealmList<Language> languages;
 
-    public Country(String name, String nativeName, String capital, String numericCode, String region, String flag, String population, List<Language> languages){
-        this.name = name;
-        this.nativeName = nativeName;
-        this.capital = capital;
-        this.numericCode = numericCode;
-        this.region = region;
-        this.flag = flag;
-        this.population = population;
-        this.languages = languages;
+    public Country(){
+
     }
 
     public String getName() {
@@ -97,25 +93,11 @@ public class Country {
         this.population = population;
     }
 
-    public List<Language> getLanguages() {
+    public RealmList<Language> getLanguages() {
         return languages;
     }
 
-    public void setLanguages(List<Language> languages) {
+    public void setLanguages(RealmList<Language> languages) {
         this.languages = languages;
-    }
-
-    @Override
-    public String toString(){
-        return "Country{" +
-                "name = " + name + '\'' +
-                ", nativeName = " + nativeName + '\'' +
-                ", capital = " + capital + '\'' +
-                ", numericCode = " + numericCode + '\'' +
-                ", region = " + region + '\'' +
-                ", flag = " + flag + '\'' +
-                ", population = " + population + '\'' +
-                ", languages = " + languages + '\'' +
-                "}";
     }
 }
