@@ -52,6 +52,11 @@ public class CountriesAdapter extends RecyclerView.Adapter<CountriesAdapter.View
         return countries.size();
     }
 
+    public void dataSetChanged(List<Country> countries){
+        this.countries = countries;
+        this.notifyDataSetChanged();
+    }
+
     class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvCountryName;

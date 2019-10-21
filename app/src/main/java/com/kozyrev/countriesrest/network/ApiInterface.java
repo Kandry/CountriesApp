@@ -11,7 +11,7 @@ import retrofit2.http.Path;
 public interface ApiInterface {
 
     @GET("all")
-    List<Country> getCountries();
+    Call<List<Country>> getCountries();
 
     @GET("name/{name}")
     Call<Country> getCountryDetail(@Path("name") String name);

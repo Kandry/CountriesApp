@@ -8,6 +8,10 @@ import com.kozyrev.countriesrest.network.ApiInterface;
 
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class CountryListModel implements CountryListContract.Model {
 
     private static final String TAG = "CountryListModel";
@@ -16,14 +20,20 @@ public class CountryListModel implements CountryListContract.Model {
     public void getCountries(OnFinishedListener onFinishedListener) {
 
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        List<Country> countries = apiInterface.getCountries();
-        if (countries.size() > 0){
-            Log.d(TAG, "Number of countries received: " + countries.size());
-            onFinishedListener.onFinished(countries);
-        } else {
-            Throwable throwable = new Exception("Countries not found");
-            Log.e(TAG, throwable.toString());
-            onFinishedListener.onFailure(throwable);
-        }
+        Call<List<Country>> call = apiInterface.getCountries();
+        call.enqueue(new Callback<List<Country>>() {
+            @Override
+            public void onResponse(Call<List<Country>> call, Response<List<Country>> response) {
+                List<Country> countries = response.body();
+                Log.d(TAG, "Number of countries received: " + countries.size());
+                onFinishedListener.onFinished(countries);
+            }
+
+            @Override
+            public void onFailure(Call<List<Country>> call, Throwable t) {
+                Log.e(TAG, t.toString());
+                onFinishedListener.onFailure(t);
+            }
+        });
     }
 }
